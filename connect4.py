@@ -1,4 +1,6 @@
 
+import os
+
 # creates a matrix of * characters
 # to represent the game
 matrix = []
@@ -16,17 +18,14 @@ def printMatrix(matrix):
     for rows in range(7):
         for columns in range(6):
             if(rows == 0):  # prints characters for Columns
-                print chr(65 + columns) + " ",
+                print columns, "",
 
             else:
                 print matrix[rows - 1][columns] + " ",
 
         print " ",
-        if(rows != 0):  # prints numbers to the side
-            print(7 - rows)
 
-        else:
-            print" "
+        print" "
 
 # places piece into game matrix
 
@@ -91,7 +90,7 @@ def checkWin(matrix, playedMoves):
 
     # check up and right
     for i in range(-3, 4):
-        #counts from - 3 to 3 by 1
+        # counts from - 3 to 3 by 1
         if ((column + i >= 0 and row - i >= 0) and
                 (column + i < 6 and row - i < 6)):
 
@@ -128,7 +127,7 @@ def runGame(matrix):
 
         column = raw_input("player " + str(moves) + " make a move: ")
 
-        column = ord(column) - 65
+        column = int(column)
         if(moves % 2 == 1):
             playPiece(matrix, 'x', column)
             moves = moves + 1
@@ -137,9 +136,11 @@ def runGame(matrix):
             playPiece(matrix, 'O', column)
             moves = moves + 1
 
+        os.system('cls' if os.name == 'nt' else 'clear')
         printMatrix(matrix)
         # print(playedMoves)
         checkWin(matrix, playedMoves)
 
+os.system('cls' if os.name == 'nt' else 'clear')
 printMatrix(matrix)
 runGame(matrix)
