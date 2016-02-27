@@ -104,7 +104,7 @@ def checkWin(matrix, playedMoves):
         print "you have won diagonally"
 
     count = 0
-    # check up and right
+    # check up and teft
     for i in range(3, -4, -1):  # counts from 3 to -3 by -1
         if ((column + i >= 0 and row + i >= 0) and
                 (column + i < 6 and row + i < 6)):
