@@ -10,6 +10,7 @@ for rows in range(6):
     matrix.append([])
 
     for columns in range(6):
+
         matrix[rows].append("*")
 
 
@@ -18,9 +19,12 @@ def printMatrix(matrix):
         for columns in range(6):
             if(rows == 0):  # prints characters for Columns
                 print columns, "",
+
             else:
                 print matrix[rows - 1][columns] + " ",
+
         print " ",
+
         print" "
 
 # places piece into game matrix
@@ -29,6 +33,7 @@ def printMatrix(matrix):
 def playPiece(matrix, piece, column):
 
     for i in range(6):
+
         if(matrix[5 - i][column] == '*'):
             playedMoves.append([(5 - i), column])
             matrix[5 - i][column] = piece
