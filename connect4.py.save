@@ -14,6 +14,7 @@ for rows in range(6):
         matrix[rows].append("*")
 
 
+
 def printMatrix(matrix):
     for rows in range(7):
         for columns in range(6):
@@ -39,7 +40,7 @@ def playPiece(matrix, piece, column):
             matrix[5 - i][column] = piece
             break
 
-# return matrix
+#	return matrix
 
 
 def checkWin(matrix, playedMoves):
